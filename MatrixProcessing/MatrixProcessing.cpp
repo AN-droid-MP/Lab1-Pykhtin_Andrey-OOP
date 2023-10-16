@@ -17,10 +17,12 @@ double averageDigitsInRow(const Matrix &matrix, int row) {
 }
 
 
-Matrix processMatrix(const Matrix &original, bool createNew) {
-    Matrix result = initialize(original.size);
+[[maybe_unused]] Matrix createNewMatrix(const Matrix &original) {
+    Matrix newMatrix = initialize(original.size);
 
     for (int i = 0; i < original.size; ++i) {
+        double avgDigitsInRow = averageDigitsInRow(original, i);
+
         for (int j = 0; j < original.size; ++j) {
             int num = original.data[i][j];
             int digits = 0;
@@ -31,24 +33,11 @@ Matrix processMatrix(const Matrix &original, bool createNew) {
                 digits++;
             }
 
-            if (createNew) {
-                double avgDigitsInRow = averageDigitsInRow(original, i);
-                if (digits > avgDigitsInRow) {
-                    result.data[i][j] = num;
-                } else {
-                    result.data[i][j] = 0;
-                }
-            } else {
-                if (digits > 0) {
-                    return result;
-                }
+            if (digits > avgDigitsInRow) {
+                newMatrix.data[i][j] = num;
             }
         }
     }
-
-    return result;
+    return newMatrix;
 }
 
-Matrix createNewMatrix(const Matrix &original) {
-    return processMatrix(original, true);
-}
