@@ -17,6 +17,7 @@ int main() {
     Matrix newMatrix = createNewMatrix(matrix);
 
     std::cout << "New Matrix:" << std::endl;
+    checkMatrixAndPrintResults(newMatrix);
     matrixOutput(newMatrix);
 
     freeMatrix(matrix);

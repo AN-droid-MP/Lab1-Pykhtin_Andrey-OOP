@@ -14,7 +14,7 @@ Matrix initialize(int size) {
     return matrix;
 }
 
-[[maybe_unused]] void fillMatrix(Matrix &matrix) {
+void fillMatrix(Matrix &matrix) {
     for (int i = 0; i < matrix.size; ++i) {
         for (int j = 0; j <= i; ++j) {
             std::cout << "Enter matrix element [" << i << "][" << j << "] ";
@@ -24,7 +24,7 @@ Matrix initialize(int size) {
     }
 }
 
-[[maybe_unused]] void freeMatrix(Matrix &matrix) {
+void freeMatrix(Matrix &matrix) {
     for (int i = 0; i < matrix.size; ++i) {
         delete[] matrix.data[i];
     }

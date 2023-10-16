@@ -9,8 +9,8 @@ struct Matrix {
 
 Matrix initialize(int size);
 
-[[maybe_unused]] void fillMatrix(Matrix &matrix);
+void fillMatrix(Matrix &matrix);
 
-[[maybe_unused]] void freeMatrix(Matrix &matrix);
+void freeMatrix(Matrix &matrix);
 
 #endif //LAB1_PYKHTIN_ANDREY_2___MATRIX_H

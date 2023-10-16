@@ -2,8 +2,9 @@
 #include <string>
 #include "../Matrix/Matrix.h"
 #include "../IOHelper/IOHelper.h"
+#include "../MatrixProcessing/MatrixProcessing.h"
 
-[[maybe_unused]] int getIntegerInput() {
+int getIntegerInput() {
     std::string input;
     int num;
     while (true) {
@@ -47,10 +48,29 @@ void trim(std::string &str) {
     }
 }
 
-[[maybe_unused]] void matrixOutput(Matrix matrix) {
+void matrixOutput(Matrix matrix) {
     for (int i = 0; i < matrix.size; ++i) {
         for (int j = 0; j < matrix.size; ++j) {
             std::cout << matrix.data[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
+void checkMatrixAndPrintResults(const Matrix &matrix) {
+    Matrix result = processMatrix(matrix, false);
+
+    if (result.data[0][0] == 0) {
+        std::cout << "Elements not found in matrix." << std::endl;
+    } else {
+        std::cout << "Not found elements in rows: ";
+        for (int i = 0; i < matrix.size; ++i) {
+            if (result.data[i][0] == 0) {
+                std::cout << i + 1;
+                if (i < matrix.size - 1) {
+                    std::cout << ", ";
+                }
+            }
         }
         std::cout << std::endl;
     }

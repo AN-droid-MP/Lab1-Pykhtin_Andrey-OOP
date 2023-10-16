@@ -6,6 +6,8 @@
 
 double averageDigitsInRow(const Matrix &matrix, int row);
 
-[[maybe_unused]] Matrix createNewMatrix(const Matrix &original);
+Matrix createNewMatrix(const Matrix &original);
+
+Matrix processMatrix(const Matrix &original, bool createNew);
 
 #endif //LAB1_PYKHTIN_ANDREY_2___MATRIXPROCESSING_H
