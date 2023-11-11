@@ -3,4 +3,4 @@ project(Lab1)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Lab1 main.cpp Matrix/Matrix.h Matrix/Matrix.cpp Input/Input.h Input/Input.cpp)
+add_executable(Lab1 code/main.cpp code/Matrix/Matrix.h code/Matrix/Matrix.cpp code/Input/Input.h code/Input/Input.cpp)
