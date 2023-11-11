@@ -101,9 +101,6 @@ namespace Matrix {
             if (matrix.data[i] != 0) {
                 std::cout << matrix.data[i] << " ";
             }
-            if(  (i+1) % matrix.size == 0) {
-                std::cout << std::endl;
-            }
         }
     }
 
