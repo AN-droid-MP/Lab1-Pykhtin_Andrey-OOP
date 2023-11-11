@@ -1,16 +1,33 @@
 
-#ifndef LAB1_PYKHTIN_ANDREY_2___MATRIX_H
-#define LAB1_PYKHTIN_ANDREY_2___MATRIX_H
+#ifndef MATRIX_H
+#define MATRIX_H
 
-struct Matrix {
-    int **data;
-    int size;
-};
+#include <vector>
 
-Matrix initialize(int size);
+namespace Matrix {
 
-void fillMatrix(Matrix &matrix);
+    struct Matrix {
+        std::vector<int> data;
+        int size;
+    };
 
-void freeMatrix(Matrix &matrix);
+    Matrix initialize(int size);
 
-#endif //LAB1_PYKHTIN_ANDREY_2___MATRIX_H
+    int getIndex(int row, int col, int size);
+
+    void fillMatrix(Matrix &matrix);
+
+    Matrix createNewMatrix(const Matrix &original);
+
+    double averageDigitsInRow(const Matrix &matrix, int row);
+
+    int digitsInNumber(int number);
+
+    void originalMatrixOutput(const Matrix& matrix);
+
+    void resultMatrixOutput(const Matrix &matrix);
+
+    bool isEmpty(const Matrix& matrix);
+}
+
+#endif //MATRIX_H

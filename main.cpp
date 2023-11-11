@@ -1,27 +1,34 @@
 #include <iostream>
-#include "IOHelper/IOHelper.h"
-#include "MatrixProcessing/MatrixProcessing.h"
+#include "Input/Input.h"
 #include "Matrix/Matrix.h"
-
 
 int main() {
     std::cout << "Enter matrix size: ";
-    int size = getIntegerInput();
-    Matrix matrix = initialize(size);
+    int size = 0;
+    while (size < 1) {
+        size = getInteger(std::cin);
+        if (size < 1) {
+            std::cout << "Matrix size can't be less than 1" << std::endl;
+        }
+    }
+
+    Matrix::Matrix matrix = Matrix::initialize(size);
 
     fillMatrix(matrix);
 
     std::cout << "Original Matrix:" << std::endl;
-    matrixOutput(matrix);
+    originalMatrixOutput(matrix);
 
-    Matrix newMatrix = createNewMatrix(matrix);
+    Matrix::Matrix newMatrix = Matrix::createNewMatrix(matrix);
 
     std::cout << "New Matrix:" << std::endl;
-    checkMatrixAndPrintResults(newMatrix);
-    matrixOutput(newMatrix);
 
-    freeMatrix(matrix);
-    freeMatrix(newMatrix);
+    if(!isEmpty(newMatrix)){
+        resultMatrixOutput(newMatrix);
+    }
+    else {
+        std::cout << "There are no elements in the original matrix that satisfy the condition" << std::endl;
+    }
 
     return 0;
 }
