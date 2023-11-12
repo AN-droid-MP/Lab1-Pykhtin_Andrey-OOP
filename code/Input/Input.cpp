@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include "../exception/type_mismatch_error.cpp"
 #include "Input.h"
 
 void signalHandler(int signal) {
@@ -22,17 +23,16 @@ int getInteger(std::istream &in) {
 
             if (in.fail()) {
                 if (in.eof()) {
-                    std::cout << "EOF detected.";
-                    exit(0);
+                    throw std::runtime_error("EOF detected. Program will be completed\n");
                 }
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                throw std::runtime_error("Invalid input format. \n");
+                throw type_mismatch_error("Invalid input format. \n");
             }
 
             break;
         }
-        catch (const std::exception &exception) {
+        catch (const type_mismatch_error &exception) {
             std::cerr << exception.what();
         }
     }

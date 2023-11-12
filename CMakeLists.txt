@@ -3,4 +3,4 @@ project(Lab1)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Lab1 code/main.cpp code/Matrix/Matrix.h code/Matrix/Matrix.cpp code/Input/Input.h code/Input/Input.cpp)
+add_executable(Lab1 code/main.cpp code/Matrix/Matrix.h code/Matrix/Matrix.cpp code/Input/Input.h code/Input/Input.cpp code/exception/type_mismatch_error.cpp)
